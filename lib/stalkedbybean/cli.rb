@@ -10,7 +10,7 @@ module Stalkedbybean
     method_option :app_name, :type => :string, :aliases => "-n"
     method_option :aws_profile, :type => :string, :aliases => "-p"
     method_option :aws_region, :type => :string, :aliases => "-r"
-    method_option :platform_arn, :type => :string
+    method_option :platform_arn, :type => :string, :aliases => "-a"
     def create
       Stalkedbybean::Initialize.parse_options(options[:file_path], options)
       Stalkedbybean::Initialize.initialize_app
@@ -57,6 +57,27 @@ module Stalkedbybean
     def setup_roles
       Stalkedbybean::RoleSetup.parse_options(options[:file_path], options)
       Stalkedbybean::RoleSetup.setup_IAM
+    end
+
+    desc "provision [OPTIONS]", "Provisions new environment in AWS EB"
+    method_option :file_path, :type => :string, :aliases => "-f"
+    method_option :app_name, :type => :string, :aliases => "-n"
+    method_option :aws_profile, :type => :string, :aliases => "-p"
+    method_option :aws_region, :type => :string, :aliases => "-r"
+    method_option :environment, :type => :string, :aliases => "-e"
+    method_option :platform_arn, :type => :string, :aliases => "-a"
+    method_option :instance_size, :type => :string, :aliases => "-i"
+    method_option :instance_count, :type => :string, :aliases => "-s"
+    method_option :vpc_id, :type => :string
+    method_option :vpc_ec2_subnets, :type => :array
+    method_option :vpc_elb_subnets, :type => :array
+    method_option :vpc_security_groups, :type => :array
+    method_option :version, :type => :string, :aliases => "-v"
+    method_option :key_name, :type => :string
+    method_option :env_vars, :type => :string
+    def provision
+      Stalkedbybean::Provision.parse_options(options[:file_path], options)
+      Stalkedbybean::Provision.create_environment
     end
 
     desc "init", "Generates a config file"
