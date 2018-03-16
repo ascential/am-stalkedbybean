@@ -92,6 +92,16 @@ module Stalkedbybean
       Stalkedbybean::Deploy.deploy_version
     end
 
+    desc "terminate [OPTIONS]", "Terminates environment"
+    method_option :file_path, :type => :string, :aliases => "-f"
+    method_option :aws_profile, :type => :string, :aliases => "-p"
+    method_option :aws_region, :type => :string, :aliases => "-r"
+    method_option :environment, :type => :string, :aliases => "-e"
+    def terminate
+      Stalkedbybean::Terminate.parse_options(options[:file_path], options)
+      Stalkedbybean::Terminate.terminate_environment
+    end
+
     desc "init", "Generates a config file"
     def init(name)
       Stalkedbybean::Generators::Init.start([name])
