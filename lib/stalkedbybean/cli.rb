@@ -80,6 +80,18 @@ module Stalkedbybean
       Stalkedbybean::Provision.create_environment
     end
 
+    desc "deploy [OPTIONS]", "Deploys new version"
+    method_option :file_path, :type => :string, :aliases => "-f"
+    method_option :app_name, :type => :string, :aliases => "-n"
+    method_option :aws_profile, :type => :string, :aliases => "-p"
+    method_option :aws_region, :type => :string, :aliases => "-r"
+    method_option :environment, :type => :string, :aliases => "-e"
+    method_option :version, :type => :string, :aliases => "-v"
+    def deploy
+      Stalkedbybean::Deploy.parse_options(options[:file_path], options)
+      Stalkedbybean::Deploy.deploy_version
+    end
+
     desc "init", "Generates a config file"
     def init(name)
       Stalkedbybean::Generators::Init.start([name])
