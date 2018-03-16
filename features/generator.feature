@@ -15,7 +15,7 @@ Feature: Generating config files
       aws_region:
       environment: test
 
-      # MANDATORY OPTIONS TO BE FILLED UP BEFORE DEPLOYING
+      # MANDATORY OPTIONS TO BE FILLED UP BEFORE SETTING UP ROLES
       aws_account_id:
       kms_arn:
 
