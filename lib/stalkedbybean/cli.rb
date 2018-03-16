@@ -46,6 +46,19 @@ module Stalkedbybean
       end
     end
 
+    desc "setup_roles [OPTIONS]", "Sets up roles in AWS IAM"
+    method_option :file_path, :type => :string, :aliases => "-f"
+    method_option :app_name, :type => :string, :aliases => "-n"
+    method_option :aws_profile, :type => :string, :aliases => "-p"
+    method_option :aws_region, :type => :string, :aliases => "-r"
+    method_option :environment, :type => :string, :aliases => "-e"
+    method_option :aws_account_id, :type => :string
+    method_option :kms_arn, :type => :string
+    def setup_roles
+      Stalkedbybean::RoleSetup.parse_options(options[:file_path], options)
+      Stalkedbybean::RoleSetup.setup_IAM
+    end
+
     desc "init", "Generates a config file"
     def init(name)
       Stalkedbybean::Generators::Init.start([name])

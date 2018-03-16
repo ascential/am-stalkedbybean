@@ -36,4 +36,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "aruba"
   spec.add_dependency "thor"
   spec.add_dependency "aws-sdk-kms"
+  spec.add_dependency "aws-sdk-iam"
 end
