@@ -3,16 +3,10 @@ require 'Shellwords'
 module Stalkedbybean
   class Provision
 
-    def self.parse_options(filepath, options)
-      @options = self.load_default_options(filepath)
+    def self.parse_options(file_path, options)
+      @options = self.load_default_options(file_path)
       @options.merge!(options)
       @app_tag = "#{@options[:app_name]}-#{@options[:environment]}"
-    end
-
-    def self.load_default_options(file_path)
-      default_options = YAML::load(open(file_path))
-      convert_options_to_symbols = default_options.map { |option, default_value| [option.to_sym, default_value] }
-      Hash[convert_options_to_symbols]
     end
 
     def self.create_environment
@@ -41,5 +35,14 @@ module Stalkedbybean
         HEREDOC
       )
     end
+
+    private
+
+    def self.load_default_options(file_path)
+      default_options = YAML::load(open(file_path))
+      convert_options_to_symbols = default_options.map { |option, default_value| [option.to_sym, default_value] }
+      Hash[convert_options_to_symbols]
+    end
+
   end
 end

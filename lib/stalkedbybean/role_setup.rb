@@ -3,8 +3,8 @@ require 'aws-sdk-iam'
 module Stalkedbybean
   class RoleSetup
 
-    def self.parse_options(filepath, options)
-      @options = self.load_default_options(filepath)
+    def self.parse_options(file_path, options)
+      @options = self.load_default_options(file_path)
       @options.merge!(options)
       @app_tag = "#{@options[:app_name]}-#{@options[:environment]}"
     end

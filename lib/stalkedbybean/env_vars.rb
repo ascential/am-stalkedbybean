@@ -4,15 +4,9 @@ require 'aws-sdk-elasticbeanstalk'
 module Stalkedbybean
   class EnvVars
 
-    def self.parse_options(filepath, options)
-      @options = self.load_default_options(filepath)
+    def self.parse_options(file_path, options)
+      @options = self.load_default_options(file_path)
       @options.merge!(options)
-    end
-
-    def self.load_default_options(file_path)
-      default_options = YAML::load(open(file_path))
-      convert_options_to_symbols = default_options.map { |option, default_value| [option.to_sym, default_value] }
-      Hash[convert_options_to_symbols]
     end
 
     def self.update_configuration_options
@@ -81,5 +75,14 @@ module Stalkedbybean
        "eb printenv #{@options[:app_name]}-#{@options[:environment]} --profile #{@options[:aws_profile]} -r #{@options[:aws_region]}"
       )
     end
+
+    private
+
+    def self.load_default_options(file_path)
+      default_options = YAML::load(open(file_path))
+      convert_options_to_symbols = default_options.map { |option, default_value| [option.to_sym, default_value] }
+      Hash[convert_options_to_symbols]
+    end
+
   end
 end

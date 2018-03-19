@@ -3,8 +3,8 @@ require 'Shellwords'
 module Stalkedbybean
   class AppInfo
 
-    def self.parse_options(filepath, options)
-      @options = self.load_default_options(filepath)
+    def self.parse_options(file_path, options)
+      @options = self.load_default_options(file_path)
       @options.merge!(options)
     end
 
@@ -21,6 +21,6 @@ module Stalkedbybean
       convert_options_to_symbols = default_options.map { |option, default_value| [option.to_sym, default_value] }
       Hash[convert_options_to_symbols]
     end
-    
+
   end
 end
