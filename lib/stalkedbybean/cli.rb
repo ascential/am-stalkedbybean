@@ -5,7 +5,7 @@ require 'stalkedbybean/generators/init'
 module Stalkedbybean
   class CLI < Thor
 
-    desc "CREATE", "Creates a new AWS application"
+    desc "create [OPTIONS]", "Creates a new AWS application"
     method_option :file_path, :type => :string, :aliases => "-f"
     method_option :app_name, :type => :string, :aliases => "-n"
     method_option :aws_profile, :type => :string, :aliases => "-p"
@@ -16,7 +16,7 @@ module Stalkedbybean
       Stalkedbybean::Initialize.initialize_app
     end
 
-    desc "secrets [action]", "Sets up secrets using credstash"
+    desc "secrets <command> [OPTIONS]", "Sets up secrets using credstash"
     method_option :file_path, :type => :string, :aliases => "-f"
     method_option :app_name, :type => :string, :aliases => "-n"
     method_option :aws_profile, :type => :string, :aliases => "-p"
@@ -36,7 +36,7 @@ module Stalkedbybean
       else
         puts (
           <<~HEREDOC
-          USAGE: beanie secrets <command> [OPTIONS]
+          USAGE: stalkedbybean secrets <command> [OPTIONS]
           COMMANDS:
             - setup
             - add KEY VALUE
@@ -59,7 +59,7 @@ module Stalkedbybean
       Stalkedbybean::RoleSetup.setup_IAM
     end
 
-    desc "provision [OPTIONS]", "Provisions new environment in AWS EB"
+    desc "provision -v VERSION [OPTIONS]", "Provisions new environment in AWS EB"
     method_option :file_path, :type => :string, :aliases => "-f"
     method_option :app_name, :type => :string, :aliases => "-n"
     method_option :aws_profile, :type => :string, :aliases => "-p"
@@ -80,7 +80,7 @@ module Stalkedbybean
       Stalkedbybean::Provision.create_environment
     end
 
-    desc "deploy [OPTIONS]", "Deploys new version"
+    desc "deploy -v VERSION [OPTIONS]", "Deploys new version"
     method_option :file_path, :type => :string, :aliases => "-f"
     method_option :app_name, :type => :string, :aliases => "-n"
     method_option :aws_profile, :type => :string, :aliases => "-p"

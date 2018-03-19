@@ -41,19 +41,18 @@ This will be the default config file. You have to pass it with the flag ```-f FI
 ## Commands details
 
 ```bash
-USAGE: stalkedbybeans <command> [OPTIONS]
-COMMANDS:
-  - initialize
-  - secrets
-  - setup_roles
-  - provision
-  - deploy
-  - update_config
-  - update_env_vars
-  - print_env_vars
-  - versions
-  - terminate
-  -h,--help  shows the help message for the command
+stalkedbybean init                            # Generates a config file
+stalkedbybean create [OPTIONS]                # Creates a new AWS application
+stalkedbybean secrets <command> [OPTIONS]     # Sets up secrets using credstash
+stalkedbybean setup_roles [OPTIONS]           # Sets up roles in AWS IAM
+stalkedbybean provision -v VERSION [OPTIONS]  # Provisions new environment in AWS EB
+stalkedbybean deploy -v VERSION [OPTIONS]     # Deploys new version
+stalkedbybean terminate [OPTIONS]             # Terminates environment
+stalkedbybean update_config [OPTIONS]         # Updates new config
+stalkedbybean print_env_vars [OPTIONS]        # Prints existing environment variables
+stalkedbybean update_env_vars [OPTIONS]       # Updates environment variables
+stalkedbybean versions [OPTIONS]              # Displays application versions
+stalkedbybean help [COMMAND]                  # Describe available commands or one specific command
 ```
 
 ## Handling secrets
