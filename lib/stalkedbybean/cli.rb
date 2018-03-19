@@ -102,6 +102,46 @@ module Stalkedbybean
       Stalkedbybean::Terminate.terminate_environment
     end
 
+    desc "update_config [OPTIONS]", "Updates new config"
+    method_option :file_path, :type => :string, :aliases => "-f"
+    method_option :app_name, :type => :string, :aliases => "-n"
+    method_option :aws_profile, :type => :string, :aliases => "-p"
+    method_option :aws_region, :type => :string, :aliases => "-r"
+    method_option :environment, :type => :string, :aliases => "-e"
+    method_option :instance_size, :type => :string, :aliases => "-i"
+    method_option :instance_count, :type => :string, :aliases => "-s"
+    method_option :vpc_id, :type => :string
+    method_option :vpc_ec2_subnets, :type => :array
+    method_option :vpc_elb_subnets, :type => :array
+    method_option :vpc_security_groups, :type => :array
+    method_option :key_name, :type => :string
+    method_option :env_vars, :type => :string
+    def update_config
+      Stalkedbybean::EnvVars.parse_options(options[:file_path], options)
+      Stalkedbybean::EnvVars.update_configuration_options
+    end
+
+    desc "update_env_vars [OPTIONS]", "Updates environment variables"
+    method_option :file_path, :type => :string, :aliases => "-f"
+    method_option :aws_profile, :type => :string, :aliases => "-p"
+    method_option :aws_region, :type => :string, :aliases => "-r"
+    method_option :env_vars, :type => :string
+    def update_env_vars
+      Stalkedbybean::EnvVars.parse_options(options[:file_path], options)
+      Stalkedbybean::EnvVars.update_environment_variables
+    end
+
+    desc "print_env_vars [OPTIONS]", "Prints existing environment variables"
+    method_option :file_path, :type => :string, :aliases => "-f"
+    method_option :app_name, :type => :string, :aliases => "-n"
+    method_option :aws_profile, :type => :string, :aliases => "-p"
+    method_option :aws_region, :type => :string, :aliases => "-r"
+    method_option :environment, :type => :string, :aliases => "-e"
+    def print_env_vars
+      Stalkedbybean::EnvVars.parse_options(options[:file_path], options)
+      Stalkedbybean::EnvVars.print_environment_variables
+    end
+
     desc "init", "Generates a config file"
     def init(name)
       Stalkedbybean::Generators::Init.start([name])
