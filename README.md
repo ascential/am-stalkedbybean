@@ -34,11 +34,11 @@ stalkedbybean init your-environment-name
 
 2. Update the generated config file with the config options relevant to _your_ app especially the mandatory ones for setting up secrets. You won't be able to get your `kms_arn` until you set up your secrets below so leave that for now.
 
-Detailed information on how to update your config options [can be found here.](./docs/setting_up_config_file.md).
+Detailed information on how to update your config options [can be found here](./docs/setting_up_config_file.md).
 
 This will be the default config file. You have to pass it with the flag ```-f FILENAME``` when running the gem commands.
 
-## Commands details
+## Commands Details
 
 ```bash
 stalkedbybean init                            # Generates a config file
@@ -55,7 +55,7 @@ stalkedbybean versions [OPTIONS]              # Displays application versions
 stalkedbybean help [COMMAND]                  # Describe available commands or one specific command
 ```
 
-## Handling secrets
+## Handling Secrets
 
 The Beanstalk platform expects secrets to be put using [CredStash](https://github.com/fugue/credstash), in the same region that you are deploying, using a table called `your_app_name-your_environment_name`, encrypted through a KMS key.
 
@@ -63,7 +63,7 @@ This can be done using `stalkedbybeans`.
 
 1. Make sure you have the `config.yml` file with the mandatory options for setting up secrets filled up correctly.
 
-2. Create a KMS key and setup a table to hold your secrets. This step will also print out your KMS ARN which you should copy and paste into your [config.yml file](./config.yml) as it will be required for deploymnent.
+2. Create a KMS key and setup a table to hold your secrets. This step will also print out your KMS ARN which you should copy and paste into your [config.yml file](./config.yml) as it will be required for deployment.
 ```bash
 $ stalkedbybeans secrets setup
 ```

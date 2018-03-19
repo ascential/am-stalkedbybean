@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Kavita Kalaichelvan", "Thomas Depierre"]
   spec.email         = ["kavita.kalaichelvan@ascential.com", "thomas.depierre@ascential.com"]
 
-  spec.summary       = "CLI to deploy Elixir apps to AWS using Elastic Beanstalk"
+  spec.summary       = "Command line utility to deploy Elixir apps to AWS using Elastic Beanstalk"
   spec.description   = "You can deploy your Elixir app to AWS by running a few simple commands."
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/ascential/am-stalkedbybean"
   spec.license       = "BSD-3-Clause"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
