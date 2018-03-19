@@ -142,6 +142,16 @@ module Stalkedbybean
       Stalkedbybean::EnvVars.print_environment_variables
     end
 
+    desc "versions [OPTIONS]", "Displays application versions"
+    method_option :file_path, :type => :string, :aliases => "-f"
+    method_option :aws_profile, :type => :string, :aliases => "-p"
+    method_option :aws_region, :type => :string, :aliases => "-r"
+    def versions
+      Stalkedbybean::AppInfo.parse_options(options[:file_path], options)
+      Stalkedbybean::AppInfo.list_application_versions
+    end
+
+
     desc "init", "Generates a config file"
     def init(name)
       Stalkedbybean::Generators::Init.start([name])
