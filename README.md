@@ -34,7 +34,7 @@ stalkedbybean init your-environment-name
 
 2. Update the generated config file with the config options relevant to _your_ app especially the mandatory ones for setting up secrets. You won't be able to get your `kms_arn` until you set up your secrets below so leave that for now.
 
-Detailed information on how to update your config options [can be found here.](./docs/config_file.md).
+Detailed information on how to update your config options [can be found here.](./docs/setting_up_config_file.md).
 
 This will be the default config file. You have to pass it with the flag ```-f FILENAME``` when running the gem commands.
 
@@ -78,7 +78,7 @@ $ stalkedbybeans secrets add [key] [value]
 $ stalkedbybeans secrets get [key]
 ```
 
-If you do not want to use the script, you can also use Credstash manually.
+If you do not want to use the script, you can also use Credstash [manually as described here](./docs/setting_up_config_file.md).
 
 Key are versioned. See [CredStash documentation](https://github.com/fugue/credstash) for more details.
 
