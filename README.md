@@ -1,7 +1,6 @@
 # Stalkedbybean
 
-Little Ruby command line utility to help Ascential Makers to deploy on AWS beanstalk.
-Configurable through command line and config file.
+Little Ruby command line utility to help Ascential Makers to deploy on AWS beanstalk. Configurable through command line and config file.
 
 ## Installation
 
@@ -13,24 +12,31 @@ gem 'stalkedbybean'
 
 And then execute:
 
-    $ bundle
+```ruby
+$ bundle install
+```
 
 Or install it yourself as:
 
-    $ gem install stalkedbybean
+```
+$ gem install stalkedbybean
+```
 
 
 ## How to use
 
 You can perform all the steps for deploying your app (initializing it, handling secrets, creating the environment, deploying the version and terminating environment finally) by running a simple Ruby script.
 
-1. Copy the [config.yml file](./config.yml) to your project.
+1. Initialise a default config file. Replace `your-environment-name` which whatever applies to you (eg; test, staging, production etc).
+```
+stalkedbybean init your-environment-name
+```
 
-2. Update the [config.yml file](./config.yml) with the config options relevant to _your_ app especially the mandatory ones for setting up secrets. You won't be able to get your `kms_arn` until you set up your secrets below so leave that for now.
+2. Update the generated config file with the config options relevant to _your_ app especially the mandatory ones for setting up secrets. You won't be able to get your `kms_arn` until you set up your secrets below so leave that for now.
 
 Detailed information on how to update your config options [can be found here.](./docs/config_file.md).
 
-This will be the default config file. You can replace the ```DEFAULT_CONFIG_FILE``` constant [within the module ```Parser```](./am-beanstalk.rb) if you want to rename or move the file. Alternatively, you can pass your own file with the flag ```-f FILENAME``` when running the script commands.
+This will be the default config file. You have to pass it with the flag ```-f FILENAME``` when running the gem commands.
 
 ## Commands details
 
@@ -65,12 +71,12 @@ $ stalkedbybeans secrets setup
 
 3. To add a secret in a key/value pair:
 ```bash
-$ stalkedbybeans secrets add_secret [key] [value]
+$ stalkedbybeans secrets add [key] [value]
 ```
 
 4. To get a secret:
 ```bash
-$ stalkedbybeans secrets get_secret [key]
+$ stalkedbybeans secrets get [key]
 ```
 
 If you do not want to use the script, you can also use Credstash manually.
