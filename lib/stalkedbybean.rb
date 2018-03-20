@@ -7,6 +7,7 @@ require "stalkedbybean/deploy"
 require "stalkedbybean/terminate"
 require "stalkedbybean/env_vars"
 require "stalkedbybean/app_info"
+require "stalkedbybean/parser"
 
 
 module Stalkedbybean
