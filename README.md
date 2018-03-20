@@ -27,16 +27,16 @@ $ gem install stalkedbybean
 
 You can perform all the steps for deploying your app (initializing it, handling secrets, creating the environment, deploying the version and terminating environment finally) by running a simple Ruby script.
 
-1. Initialise a default config file. Replace `your-environment-name` which whatever applies to you (eg; test, staging, production etc).
+1. Initialise a default config file. Replace `your-environment-name` which whatever applies to you (eg; test, staging, production etc). This should generate a [config file](./config/config_test.yml) and [config settings file](./config/.settings.yml).
 ```
 stalkedbybean init your-environment-name
 ```
 
-2. Update the generated config file with the config options relevant to _your_ app especially the mandatory ones for setting up secrets. You won't be able to get your `kms_arn` until you set up your secrets below so leave that for now.
+2. Update the generated [config file](./config/config_test.yml) with the config options relevant to _your_ app especially the mandatory ones for setting up secrets. You won't be able to get your `kms_arn` until you set up your secrets below so leave that for now.
 
 Detailed information on how to update your config options [can be found here](./docs/setting_up_config_file.md).
 
-This will be the default config file. You have to pass it with the flag ```-f FILENAME``` when running the gem commands.
+3. The generated file will automatically be set as your default config file. You can override this by passing it with the flat ```-f FILENAME``` when running the gem commands or changing the default file in `config/.settings.yml`. 
 
 ## Commands Details
 
@@ -63,7 +63,7 @@ This can be done using `stalkedbybeans`.
 
 1. Make sure you have the `config.yml` file with the mandatory options for setting up secrets filled up correctly.
 
-2. Create a KMS key and setup a table to hold your secrets. This step will also print out your KMS ARN which you should copy and paste into your [config.yml file](./config.yml) as it will be required for deployment.
+2. Create a KMS key and setup a table to hold your secrets. This step will also print out your KMS ARN which you should copy and paste into your [config.yml file](./config/config_test.yml) as it will be required for deployment.
 ```bash
 $ stalkedbybeans secrets setup
 ```
@@ -78,7 +78,7 @@ $ stalkedbybeans secrets add [key] [value]
 $ stalkedbybeans secrets get [key]
 ```
 
-If you do not want to use the script, you can also use Credstash [manually as described here](./docs/setting_up_config_file.md).
+If you do not want to use the script, you can also use Credstash [manually as described here](./docs/setting_up_credstash.md).
 
 Key are versioned. See [CredStash documentation](https://github.com/fugue/credstash) for more details.
 
