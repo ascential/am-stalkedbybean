@@ -5,7 +5,8 @@ module Stalkedbybean
 
     def self.parse_options(file_path, options)
       @options = self.load_default_options(file_path)
-      @options.merge!(options)
+      parsed_options = self.symbolize_option_names(options)
+      @options.merge!(parsed_options)
       @app_tag = "#{@options[:app_name]}-#{@options[:environment]}"
     end
 
@@ -74,11 +75,14 @@ module Stalkedbybean
     end
 
     private
-
+    
     def self.load_default_options(file_path)
       default_options = YAML::load(open(file_path))
-      convert_options_to_symbols = default_options.map { |option, default_value| [option.to_sym, default_value] }
-      Hash[convert_options_to_symbols]
+      convert_options_to_symbols = symbolize_option_names(default_options)
+    end
+
+    def self.symbolize_option_names(options)
+      options.map { |key, value| [key.to_sym, value] }.to_h
     end
 
     def self.create_role
