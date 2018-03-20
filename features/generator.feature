@@ -36,8 +36,8 @@ Feature: Generating config files
       key_name:
       """
     Then the following files should exist:
-      |config/.config|
-      Then the file "config/.config" should contain:
+      |config/.settings.yml|
+      Then the file "config/.settings.yml" should contain:
       """
-      default
+      default: "config/config_test.yml"
       """
