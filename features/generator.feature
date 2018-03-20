@@ -35,3 +35,9 @@ Feature: Generating config files
         -
       key_name:
       """
+    Then the following files should exist:
+      |config/.config|
+      Then the file "config/.config" should contain:
+      """
+      default
+      """

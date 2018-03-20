@@ -14,8 +14,12 @@ module Stalkedbybean
         empty_directory('config')
       end
 
-      def copy_config
+      def copy_config_file
         template("config.yml", "config/config_#{name}.yml")
+      end
+
+      def copy_config_settings
+        template(".config", "config/.config")
       end
     end
   end
