@@ -36,9 +36,9 @@ $ sudo pip3 install credstash
 
 2. Make sure you have your AWS credentials set up. If not, you can do so by [following the instructions here.](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
 
-3. Initialise a default config file in your project's root directory. Replace `your-environment-name` which whatever applies to you (eg; test, staging, production etc). This should generate a [config file](./config/config_test.yml) and [config settings file](./config/.settings.yml).
+3. Initialise a default config file in your project's root directory. Replace `your-environment-name` which whatever applies to you (eg; test, staging, production etc). This should generate a [config file](./config/config_test.yml) and [config settings file](./config/.settings.yml) in the directory you are in.
 ```
-stalkedbybean init your-environment-name
+$ stalkedbybean init your-environment-name
 ```
 
 4. Update the generated [config file](./config/config_test.yml) with the config options relevant to _your_ app especially the mandatory ones for setting up secrets. You won't be able to get your `kms_arn` until you set up your secrets below so leave that for now.
