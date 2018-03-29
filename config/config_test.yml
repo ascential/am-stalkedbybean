@@ -1,0 +1,25 @@
+# MANDATORY OPTIONS TO BE FILLED UP BEFORE SETTING UP SECRETS
+app_name:
+aws_profile:
+aws_region:
+environment: test
+
+# MANDATORY OPTIONS TO BE FILLED UP BEFORE SETTING UP ROLES
+aws_account_id:
+kms_arn:
+
+# OPTIONAL (BUT HIGHLY RECOMMENDED) OPTIONS
+vpc_id:
+vpc_security_groups:
+  -
+instance_count:
+instance_size:
+platform_arn:
+env_vars: "KEY=value"
+vpc_ec2_subnets:
+  -
+  -
+vpc_elb_subnets:
+  -
+  -
+key_name:
