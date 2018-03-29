@@ -36,7 +36,7 @@ $ sudo pip3 install credstash
 
 2. Make sure you have your AWS credentials set up. If not, you can do so by [following the instructions here.](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
 
-3. Initialise a default config file in your project's root directory. Replace `your-environment-name` which whatever applies to you (eg; test, staging, production etc). This should generate a [config file](./config/config_test.yml) and [config settings file](./config/.settings.yml) in the directory you are in.
+3. Initialise a default config file in your project's root directory. Replace `your-environment-name` which whatever applies to you (eg; test, staging, production etc). This should generate a [config file](./config/config_test.yml) and [config settings file](./config/.stalkedbybean.yml) in the directory you are in.
 ```
 $ stalkedbybean init your-environment-name
 ```
@@ -45,7 +45,7 @@ $ stalkedbybean init your-environment-name
 
 Detailed information on how to update your config options [can be found here](./docs/setting_up_config_file.md).
 
-5. The generated file will automatically be set as your default config file. You can override this by passing it with the flat ```-f FILENAME``` when running the gem commands or changing the default file in `config/.settings.yml`.
+5. The generated file will automatically be set as your default config file. You can override this by passing it with the flag ```-f FILENAME``` when running the gem commands or changing the default file in `config/.stalkedbybean.yml`.
 
 ## Commands Details
 

@@ -19,7 +19,7 @@ module Stalkedbybean
       end
 
       def copy_config_settings
-        template(".settings.yml", "config/.settings.yml")
+        template(".stalkedbybean.yml", "config/.stalkedbybean.yml")
       end
     end
   end

@@ -36,8 +36,10 @@ Feature: Generating config files
       key_name:
       """
     Then the following files should exist:
-      |config/.settings.yml|
-      Then the file "config/.settings.yml" should contain:
+      |config/.stalkedbybean.yml|
+      Then the file "config/.stalkedbybean.yml" should contain:
       """
+      # THIS WILL BE THE DEFAULT CONFIG FILE THAT WILL BE PASSED TO YOUR COMMANDS IF YOU DO NOT OVVERRIDE WITH -F FLAG.
+      # YOU CAN CHANGE IT IF YOU WANT YOUR DEFAULT CONFIG FILE TO BE SOMETHING ELSE. 
       default: "config/config_test.yml"
       """
