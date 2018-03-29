@@ -22,21 +22,30 @@ Or install it yourself as:
 $ gem install stalkedbybean
 ```
 
-
 ## How to use
 
 You can perform all the steps for deploying your app (initializing it, handling secrets, creating the environment, deploying the version and terminating environment finally) by running a simple Ruby script.
 
-1. Initialise a default config file. Replace `your-environment-name` which whatever applies to you (eg; test, staging, production etc). This should generate a [config file](./config/config_test.yml) and [config settings file](./config/.settings.yml).
+1. This gem relies on some dependencies ([AWS CLI](https://aws.amazon.com/cli/), [AWS EB CLI](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html) and [Credstash](https://github.com/fugue/credstash)) you will have to install.
+```
+$ pip3 install awscli --upgrade --user
+$ pip3 install awsebcli --upgrade --user
+$ sudo pip3 install boto botocore boto3
+$ sudo pip3 install credstash
+```
+
+2. Make sure you have your AWS credentials set up. If not, you can do so by [following the instructions here.](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
+
+3. Initialise a default config file in your project's root directory. Replace `your-environment-name` which whatever applies to you (eg; test, staging, production etc). This should generate a [config file](./config/config_test.yml) and [config settings file](./config/.settings.yml).
 ```
 stalkedbybean init your-environment-name
 ```
 
-2. Update the generated [config file](./config/config_test.yml) with the config options relevant to _your_ app especially the mandatory ones for setting up secrets. You won't be able to get your `kms_arn` until you set up your secrets below so leave that for now.
+4. Update the generated [config file](./config/config_test.yml) with the config options relevant to _your_ app especially the mandatory ones for setting up secrets. You won't be able to get your `kms_arn` until you set up your secrets below so leave that for now.
 
 Detailed information on how to update your config options [can be found here](./docs/setting_up_config_file.md).
 
-3. The generated file will automatically be set as your default config file. You can override this by passing it with the flat ```-f FILENAME``` when running the gem commands or changing the default file in `config/.settings.yml`. 
+5. The generated file will automatically be set as your default config file. You can override this by passing it with the flat ```-f FILENAME``` when running the gem commands or changing the default file in `config/.settings.yml`.
 
 ## Commands Details
 
