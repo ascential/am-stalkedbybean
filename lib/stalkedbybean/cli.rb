@@ -88,7 +88,7 @@ module Stalkedbybean
       Stalkedbybean::Provision.create_environment
     end
 
-    desc "deploy -v VERSION [OPTIONS]", "Deploys new version"
+    desc "deploy -v VERSION [OPTIONS]", "Deploys new version of environment"
     method_option :file_path, :type => :string, :aliases => "-f"
     method_option :app_name, :type => :string, :aliases => "-n"
     method_option :aws_profile, :type => :string, :aliases => "-p"
@@ -100,7 +100,7 @@ module Stalkedbybean
       Stalkedbybean::Deploy.deploy_version
     end
 
-    desc "terminate [OPTIONS]", "Terminates environment"
+    desc "terminate [OPTIONS]", "Terminates environment, application and all resources"
     method_option :file_path, :type => :string, :aliases => "-f"
     method_option :aws_profile, :type => :string, :aliases => "-p"
     method_option :aws_region, :type => :string, :aliases => "-r"
@@ -110,7 +110,7 @@ module Stalkedbybean
       Stalkedbybean::Terminate.terminate_environment
     end
 
-    desc "update_config [OPTIONS]", "Updates new config"
+    desc "update_config [OPTIONS]", "Updates all config options"
     method_option :file_path, :type => :string, :aliases => "-f"
     method_option :app_name, :type => :string, :aliases => "-n"
     method_option :aws_profile, :type => :string, :aliases => "-p"

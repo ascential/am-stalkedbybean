@@ -2,7 +2,7 @@ module Stalkedbybean
   module Parser
     extend self
 
-    CONFIG_SETTINGS_FILE = "config/.settings.yml"
+    CONFIG_SETTINGS_FILE = "config/.stalkedbybean.yml"
 
     def parse_options(file_path, options)
       file_path ||= get_default_file_path

@@ -52,12 +52,12 @@ Detailed information on how to update your config options [can be found here](./
 ```bash
 stalkedbybean init                            # Generates a config file
 stalkedbybean create [OPTIONS]                # Creates a new AWS application
-stalkedbybean secrets <command> [OPTIONS]     # Sets up secrets using credstash
+stalkedbybean secrets <command> [OPTIONS]     # Sets up and manages secrets using Credstash
 stalkedbybean setup_roles [OPTIONS]           # Sets up roles in AWS IAM
 stalkedbybean provision -v VERSION [OPTIONS]  # Provisions new environment in AWS EB
-stalkedbybean deploy -v VERSION [OPTIONS]     # Deploys new version
-stalkedbybean terminate [OPTIONS]             # Terminates environment
-stalkedbybean update_config [OPTIONS]         # Updates new config
+stalkedbybean deploy -v VERSION [OPTIONS]     # Deploys new version of environment
+stalkedbybean terminate [OPTIONS]             # Terminates environment, application and all resources
+stalkedbybean update_config [OPTIONS]         # Updates all config options
 stalkedbybean print_env_vars [OPTIONS]        # Prints existing environment variables
 stalkedbybean update_env_vars [OPTIONS]       # Updates environment variables
 stalkedbybean versions [OPTIONS]              # Displays application versions
