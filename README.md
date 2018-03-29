@@ -87,6 +87,16 @@ $ stalkedbybeans secrets add [key] [value]
 $ stalkedbybeans secrets get [key]
 ```
 
+5. You can also change the value of an existing secret by creating a new version of it. Credstash will automatically use the latest version of the secret.
+```bash
+$ stalkedbybeans secrets change [key] [new_value] [version]
+```
+
+6. To get all the secrets stored within your application:
+```bash
+$ stalkedbybeans secrets getall
+```
+
 If you do not want to use the script, you can also use Credstash [manually as described here](./docs/setting_up_credstash.md).
 
 Key are versioned. See [CredStash documentation](https://github.com/fugue/credstash) for more details.
