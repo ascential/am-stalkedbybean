@@ -16,7 +16,7 @@ module Stalkedbybean
       Stalkedbybean::Initialize.initialize_app
     end
 
-    desc "secrets <command> [OPTIONS]", "Sets up and manages secrets using credstash"
+    desc "secrets <command> [OPTIONS]", "Sets up and manages secrets using Credstash"
     method_option :file_path, :type => :string, :aliases => "-f"
     method_option :app_name, :type => :string, :aliases => "-n"
     method_option :aws_profile, :type => :string, :aliases => "-p"

@@ -11,5 +11,5 @@ require "stalkedbybean/parser"
 
 
 module Stalkedbybean
-  # Your code goes here...
+
 end

@@ -99,7 +99,7 @@ $ stalkedbybeans secrets getall
 
 If you do not want to use the script, you can also use Credstash [manually as described here](./docs/setting_up_credstash.md).
 
-Key are versioned. See [CredStash documentation](https://github.com/fugue/credstash) for more details.
+Keys are versioned. See [CredStash documentation](https://github.com/fugue/credstash) for more details.
 
 ## Development
 
