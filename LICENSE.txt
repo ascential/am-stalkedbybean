@@ -1,6 +1,6 @@
 BSD 3-Clause License
 
-Copyright (c) 2018, Ascential
+Copyright (c) 2018, Ascential plc
 
 All rights reserved.
 

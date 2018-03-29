@@ -35,5 +35,15 @@ module Stalkedbybean
       system("credstash -r #{@options[:aws_region]} -p #{@options[:aws_profile]} -t #{@app_tag} get #{key}")
     end
 
+    def self.getall_secrets
+      system("credstash -r #{@options[:aws_region]} -p #{@options[:aws_profile]} -t #{@app_tag} getall")
+    end
+
+    def self.change_secret(key, value, version)
+      raise(StandardError, "Missing or invalid key/value") if key == nil || value == nil
+      raise(StandardError, "Missing version number" if version == nil
+      system("credstash -r #{@options[:aws_region]} -p #{@options[:aws_profile]} -t #{@app_tag} put -k alias/#{@options[:app_name]} -v #{version} #{key} #{value}")
+    end
+
   end
 end

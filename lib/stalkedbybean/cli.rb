@@ -33,6 +33,12 @@ module Stalkedbybean
       elsif action == "get"
         Stalkedbybean::SecretsSetup.parse_options(options[:file_path], options)
         Stalkedbybean::SecretsSetup.get_secret(args[0])
+      elsif action == "change"
+        Stalkedbybean::SecretsSetup.parse_options(options[:file_path], options)
+        Stalkedbybean::SecretsSetup.change_secret(args[0], args[1], args[2])
+      elsif action == "getall"
+        Stalkedbybean::SecretsSetup.parse_options(options[:file_path], options)
+        Stalkedbybean::SecretsSetup.getall_secrets
       else
         puts (
           <<~HEREDOC
@@ -41,6 +47,8 @@ module Stalkedbybean
             - setup
             - add KEY VALUE
             - get KEY
+            - change KEY NEW_VALUE VERSION
+            - getall
         HEREDOC
       )
       end
