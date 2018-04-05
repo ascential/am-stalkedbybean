@@ -34,6 +34,7 @@ Feature: Generating config files
         -
         -
       key_name:
+      elb_type: "classic" # accepted values are : classic, application, network
       """
     Then the following files should exist:
       |config/.stalkedbybean.yml|
