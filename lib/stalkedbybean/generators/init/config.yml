@@ -8,7 +8,7 @@ environment: <%= name %>
 aws_account_id:
 kms_arn:
 
-# OPTIONAL (BUT HIGHLY RECOMMENDED) OPTIONS
+# MANDATORY OPTIONS FOR PROVISIONNING
 vpc_id:
 vpc_security_groups:
   -
@@ -23,3 +23,4 @@ vpc_elb_subnets:
   -
   -
 key_name:
+elb_type: "classic" # accepted values are : classic, application, network

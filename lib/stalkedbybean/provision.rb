@@ -21,7 +21,7 @@ module Stalkedbybean
           -sr aws-elasticbeanstalk-service-role \
           --tags project=#{@options[:app_name]},environment=#{@options[:environment]} \
           --scale #{@options[:instance_count]} \
-          --elb-type classic \
+          --elb-type #{@options[:elb_type]} \
           --vpc.id #{@options[:vpc_id]} \
           --vpc.elbpublic \
           --vpc.ec2subnets #{@options[:vpc_ec2_subnets].join(',')} \
