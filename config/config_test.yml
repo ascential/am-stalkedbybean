@@ -8,7 +8,7 @@ environment: test
 aws_account_id:
 kms_arn:
 
-# OPTIONAL (BUT HIGHLY RECOMMENDED) OPTIONS
+# MANDATORY OPTIONS FOR PROVISIONNING
 vpc_id:
 vpc_security_groups:
   -
