@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    stalkedbybean (0.1.2)
+    stalkedbybean (0.2.0)
       aws-sdk-elasticbeanstalk
       aws-sdk-iam
       aws-sdk-kms
@@ -75,6 +75,9 @@ DEPENDENCIES
   cucumber
   rake (~> 10.0)
   stalkedbybean!
+
+RUBY VERSION
+   ruby 2.4.2p198
 
 BUNDLED WITH
    1.16.1
