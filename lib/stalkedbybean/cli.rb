@@ -67,7 +67,7 @@ module Stalkedbybean
       Stalkedbybean::RoleSetup.setup_IAM
     end
 
-    desc "provision -v VERSION [OPTIONS]", "Provisions new environment in AWS EB"
+    desc "provision -v VERSION [OPTIONS]", "Provisions new environment in AWS EB and sets up roles in AWS IAM"
     method_option :file_path, :type => :string, :aliases => "-f"
     method_option :app_name, :type => :string, :aliases => "-n"
     method_option :aws_profile, :type => :string, :aliases => "-p"
@@ -83,8 +83,12 @@ module Stalkedbybean
     method_option :version, :type => :string, :aliases => "-v"
     method_option :key_name, :type => :string
     method_option :env_vars, :type => :string
+    method_option :aws_account_id, :type => :string
+    method_option :kms_arn, :type => :string
     def provision
       Stalkedbybean::Provision.parse_options(options[:file_path], options)
+      Stalkedbybean::RoleSetup.parse_options(options[:file_path], options)
+      Stalkedbybean::RoleSetup.setup_IAM
       Stalkedbybean::Provision.create_environment
     end
 
