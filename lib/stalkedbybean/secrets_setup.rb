@@ -13,7 +13,7 @@ module Stalkedbybean
       @client = Aws::KMS::Client.new(region: "#{@options[:aws_region]}", profile: "#{@options[:aws_profile]}")
       key = @client.create_key({})
       @client.create_alias({
-        alias_name: "alias/#{@options[:app_name]}",
+        alias_name: "alias/#{@options[:app_tag]}",
         target_key_id: key[:key_metadata][:key_id]
         })
 
@@ -27,7 +27,7 @@ module Stalkedbybean
 
     def self.add_secret(key, value)
       raise(StandardError, "Missing or invalid key/value") if key == nil || value == nil
-      system("credstash -r #{@options[:aws_region]} -p #{@options[:aws_profile]} -t #{@app_tag} put -k alias/#{@options[:app_name]} #{key} #{value}")
+      system("credstash -r #{@options[:aws_region]} -p #{@options[:aws_profile]} -t #{@app_tag} put -k alias/#{@options[:app_tag]} #{key} #{value}")
     end
 
     def self.get_secret(key)
@@ -42,7 +42,7 @@ module Stalkedbybean
     def self.change_secret(key, value, version)
       raise(StandardError, "Missing or invalid key/value") if key == nil || value == nil
       raise(StandardError, "Missing version number") if version == nil
-      system("credstash -r #{@options[:aws_region]} -p #{@options[:aws_profile]} -t #{@app_tag} put -k alias/#{@options[:app_name]} -v #{version} #{key} #{value}")
+      system("credstash -r #{@options[:aws_region]} -p #{@options[:aws_profile]} -t #{@app_tag} put -k alias/#{@options[:app_tag]} -v #{version} #{key} #{value}")
     end
 
   end

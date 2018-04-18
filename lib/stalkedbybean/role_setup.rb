@@ -8,12 +8,12 @@ module Stalkedbybean
     end
 
     def self.setup_IAM
-      
+
       @app_tag = "#{@options[:app_name]}-#{@options[:environment]}"
       @client = Aws::IAM::Client.new(region: "#{@options[:aws_region]}", profile: "#{@options[:aws_profile]}")
       @iam = Aws::IAM::Resource.new(client: @client)
 
-      role_name = "#{@app_tag}-beanstalk-EC2"
+      role_name = "#{@app_tag}-#{@options[:aws_region]}-beanstalk-EC2"
 
       begin
         role = self.create_role
