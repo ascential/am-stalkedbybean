@@ -17,7 +17,7 @@ module Stalkedbybean
           --region #{@options[:aws_region]} \
           -p #{@options[:platform_arn]} \
           -i #{@options[:instance_size]} \
-          -ip #{@options[:app_name]}-#{@options[:environment]}-beanstalk-EC2 \
+          -ip #{@options[:app_name]}-#{@options[:aws_region]}-#{@options[:environment]}-beanstalk-EC2 \
           -sr aws-elasticbeanstalk-service-role \
           --tags project=#{@options[:app_name]},environment=#{@options[:environment]} \
           --scale #{@options[:instance_count]} \
