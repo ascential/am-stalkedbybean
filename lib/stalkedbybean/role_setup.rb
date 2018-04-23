@@ -89,7 +89,7 @@ module Stalkedbybean
       }
 
       role = @iam.create_role({
-               role_name: "#{@app_tag}-beanstalk-EC2",
+               role_name: role_name,
                assume_role_policy_document: policy_doc.to_json
              })
 
