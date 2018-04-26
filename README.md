@@ -30,8 +30,8 @@ You can perform all the steps for deploying your app (initializing it, handling 
 ```
 $ pip3 install awscli --upgrade --user
 $ pip3 install awsebcli --upgrade --user
-$ sudo pip3 install boto botocore boto3
-$ sudo pip3 install credstash
+$ pip3 install boto botocore boto3
+$ pip3 install credstash
 ```
 
 2. Make sure you have your AWS credentials set up. If not, you can do so by [following the instructions here.](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
